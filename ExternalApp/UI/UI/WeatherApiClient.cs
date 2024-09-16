@@ -1,34 +1,4 @@
-﻿using Dapr.Client;
-
-namespace UI;
-
-public class WeatherDaprClient(DaprClient client)
-{
-    public async Task<WeatherForecast[]> GetWeatherAsync(
-        int maxItems = 10,
-        CancellationToken cancellationToken = default)
-    {
-        var result = await client.InvokeMethodAsync<WeatherForecast[]>(HttpMethod.Get, "presentation-api-dapr", $"/weatherforecast", cancellationToken);
-
-        List<WeatherForecast>? forecasts = null;
-
-        foreach (var forecast in result)
-        {
-            if (forecasts?.Count >= maxItems)
-            {
-                break;
-            }
-            if (forecast is not null)
-            {
-                forecasts ??= [];
-                forecasts.Add(forecast);
-            }
-        }
-
-        return forecasts?.ToArray() ?? [];
-    }
-}
-
+﻿namespace UI;
 
 public class WeatherApiClient(HttpClient httpClient)
 {
@@ -37,20 +7,19 @@ public class WeatherApiClient(HttpClient httpClient)
         CancellationToken cancellationToken = default)
     {
         List<WeatherForecast>? forecasts = null;
+        IAsyncEnumerable<WeatherForecast?> results = httpClient.GetFromJsonAsAsyncEnumerable<WeatherForecast>("/weatherforecast", cancellationToken);
 
-        await foreach (var forecast in
-                       httpClient.GetFromJsonAsAsyncEnumerable<WeatherForecast>(
-                           "/weatherforecast", cancellationToken))
+        await foreach (var forecast in results)
         {
             if (forecasts?.Count >= maxItems)
             {
                 break;
             }
-            if (forecast is not null)
-            {
-                forecasts ??= [];
-                forecasts.Add(forecast);
-            }
+
+            if (forecast is null) continue;
+
+            forecasts ??= [];
+            forecasts.Add(forecast);
         }
 
         return forecasts?.ToArray() ?? [];

@@ -40,14 +40,10 @@ else
     [Inject]
     public WeatherApiClient WeatherClient { get; set; }
 
-    [Inject]
-    public WeatherDaprClient DaprClient { get; set; }
     private WeatherForecast[]? _forecasts;
 
     protected override async Task OnInitializedAsync()
     {
-        var client = new HttpClient();
-
-        _forecasts = await DaprClient.GetWeatherAsync();
+        _forecasts = await WeatherClient.GetWeatherAsync();
     }
 }
