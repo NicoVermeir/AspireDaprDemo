@@ -23,4 +23,7 @@ builder.AddProject<Projects.UI>("ui")
     .WithReference(api);
 
 
+builder.AddProject<Projects.ExternalApp_MigrationService>("externalapp-migrationservice");
+
+
 builder.Build().Run();

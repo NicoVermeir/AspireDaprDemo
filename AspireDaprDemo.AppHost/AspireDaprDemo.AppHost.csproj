@@ -16,6 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\ExternalApp.MigrationService\ExternalApp.MigrationService.csproj" />
 		<ProjectReference Include="..\ExternalApp\Presentation.API\Presentation.API.csproj" />
 		<ProjectReference Include="..\ExternalApp\UI\UI\UI.csproj" />
 		<ProjectReference Include="..\Presentation.Api\Presentation.Api.csproj" />
