@@ -1,3 +1,4 @@
+using UI;
 using UI.Client.Pages;
 using UI.Components;
 
@@ -9,6 +10,14 @@ builder.AddServiceDefaults();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddHttpClient<WeatherApiClient>(client =>
+{
+    client.BaseAddress = new Uri("https+http://presentation-api");
+});
+
+builder.Services.AddDaprClient();
+builder.Services.AddTransient<WeatherDaprClient>();
 
 var app = builder.Build();
 

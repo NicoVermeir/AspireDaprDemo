@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\AspireDaprDemo.ServiceDefaults\AspireDaprDemo.ServiceDefaults.csproj" />
     <ProjectReference Include="..\UI.Client\UI.Client.csproj" />
+    <PackageReference Include="Dapr.AspNetCore" Version="1.14.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.8" />
   </ItemGroup>
 
