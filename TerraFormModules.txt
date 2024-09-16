@@ -1,0 +1,58 @@
+data "azurerm_resource_group" "rg" {}
+
+data "azurerm_resource_group" "rg-network" {}
+
+data "azurerm_virtual_network" "vnet" {}
+
+data "azurerm_subnet" "infraSubnet" {}
+
+data "azurerm_key_vault" "kv" {}
+
+data "azurerm_network_security_group" "Nsg" {}
+
+data "azurerm_route_table" "rt" {}
+
+module "naming" {}
+
+module "ApplicationResourceGroup" {}
+
+
+# Setup Networking
+resource "azurerm_subnet" "ApplicationSubnet" {}
+
+module "AcaSubnet" {}
+
+
+# Associate Network Security Groups with Subnets
+resource "azurerm_subnet_network_security_group_association" "acaSecurityGroupAssociation" {
+}
+
+resource "azurerm_subnet_route_table_association" "acaRouteTableAssociation" {}
+
+resource "azurerm_subnet_network_security_group_association" "appSecurityGroupAssociation" {}
+
+resource "azurerm_subnet_route_table_association" "appRouteTableAssociation" {}
+
+
+# Setup supporting services
+module "containerRegistry" {}
+
+module "StorageAccount" {}
+
+module "aca" {}
+
+resource "random_string" "sqladminpassword" {}
+
+
+# Create a KeyVault Secret
+resource "azurerm_key_vault_secret" "sqladminpasswordsecret" {}
+
+
+# Application Insights
+module "insights" {}
+
+
+# Setup Application
+module "db" {}
+
+module "app" {}

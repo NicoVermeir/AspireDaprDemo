@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireDaprDemo.AppHost", "AspireDaprDemo.AppHost\AspireDaprDemo.AppHost.csproj", "{BC9E7D3F-BF0C-4EB7-9FDB-79F1F0398DB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspireDaprDemo.AppHost", "AspireDaprDemo.AppHost\AspireDaprDemo.AppHost.csproj", "{BC9E7D3F-BF0C-4EB7-9FDB-79F1F0398DB6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspireDaprDemo.ServiceDefaults", "AspireDaprDemo.ServiceDefaults\AspireDaprDemo.ServiceDefaults.csproj", "{CECB7B8C-F3F6-4608-9692-697B36D30366}"
 EndProject
@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspireDaprDemo.Host", "Aspi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspireDaprDemo.Shared", "AspireDaprDemo.Shared", "{0C6CDE44-4720-4CC9-BB10-5C8FE0E96F00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dto", "Dto\Dto.csproj", "{7F0CFE60-7FFC-451A-91A7-F378DDD225C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dto", "Dto\Dto.csproj", "{7F0CFE60-7FFC-451A-91A7-F378DDD225C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BE", "BE", "{3AC0CB11-8255-45A8-A315-2DAC0CB049DE}"
 EndProject
@@ -33,6 +33,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation.Api", "Presentation.Api\Presentation.Api.csproj", "{C21E4112-603D-40F1-8BB2-278EF3E9A647}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalApp.MigrationService", "ExternalApp.MigrationService\ExternalApp.MigrationService.csproj", "{7E5FB47E-66D5-4188-824A-1EFE425DED50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{60D202E2-4C48-4816-96C3-82680896A37C}"
+	ProjectSection(SolutionItems) = preProject
+		TerraFormModules.txt = TerraFormModules.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
